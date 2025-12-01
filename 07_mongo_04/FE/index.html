@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h2>게시판</h2>
+      <hr />
+      <table>
+        <tr>
+          <th>순번</th>
+          <th>타이틀</th>
+          <th>작성자</th>
+          <th>작성일</th>
+          <th>조회수</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>타이틀</td>
+          <td>홍길동</td>
+          <td>12.1</td>
+          <td>2</td>
+        </tr>
+      </table>
+    </div>
+
+    <script>
+      fetch(`http://localhost:4000/board`)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        });
+    </script>
+  </body>
+</html>
