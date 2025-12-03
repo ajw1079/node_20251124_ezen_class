@@ -12,6 +12,11 @@ const {
   deleteBoardItem,
 } = require("./controllers/boardController");
 
+const { MongoClient } = require("mongodb");
+
+const uri = process.env.DB_CONNECT;
+const client = new MongoClient(uri);
+
 app.use(cors());
 
 dbConnect();
@@ -27,6 +32,17 @@ router
   //     res.status(200).send("BoardList");
   //     getAllBoardLists();
   //   })
+  // .get(async (req, res) => {
+  //   try {
+  //     await client.connect();
+  //     const db = client.db("web");
+  //     const document = await db.collection("board").find({}).toArray();
+  //     res.json(document);
+  //   } catch (err) {
+  //     res.status(500).json({ error: err });
+  //   }
+  // })
+
   .get(getAllBoardLists)
   //   .post((req, res) => {
   //     res.status(200).send("BoardWrite");
